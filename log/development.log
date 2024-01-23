@@ -3677,3 +3677,31 @@ No template found for UsersController#resend_confirmation, rendering head :no_co
 Completed 204 No Content in 3332ms (ActiveRecord: 0.3ms | Allocations: 13815)
 
 
+Started GET "/" for ::1 at 2024-01-23 17:30:33 +0700
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:3:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  ↳ app/views/home/index.html.erb:22
+  Rendered home/index.html.erb within layouts/application (Duration: 6.1ms | Allocations: 3379)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 13)
+  Rendered layout layouts/application.html.erb (Duration: 16.3ms | Allocations: 8957)
+Completed 200 OK in 31ms (Views: 17.2ms | ActiveRecord: 0.3ms | Allocations: 10596)
+
+
+Started GET "/" for ::1 at 2024-01-23 17:30:34 +0700
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:3:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  ↳ app/views/home/index.html.erb:22
+  Rendered home/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 3315)
+  Rendered layouts/_header.html.erb (Duration: 0.0ms | Allocations: 13)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 8801)
+Completed 200 OK in 13ms (Views: 7.8ms | ActiveRecord: 0.2ms | Allocations: 10234)
+
+

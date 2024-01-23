@@ -1,5 +1,5 @@
 ```
-git clone https://github.com/timothyjamesmarias/rails_7_devise_example.git
+git clone https://github.com/ellamama123/rails_project
 cd rails_7_devise_example
 
 bundle install
