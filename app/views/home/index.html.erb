@@ -29,7 +29,7 @@
                         <td><%= user.confirmed_at %></td>
                     <% else %>
                         <td>
-                            <%= button_to "Resend confirmation", resend_confirmation_path(:user_id => user.id), class: '' %>
+                            <%= button_to "Resend confirmation", resend_confirmation_path(:user_id => user.id), class: 'btn btn-primary' %>
                         </td>
                     <% end %>
                 </tr>
