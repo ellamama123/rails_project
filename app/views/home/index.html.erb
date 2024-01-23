@@ -1,0 +1,73 @@
+<div class="d-flex flex-column justify-content-center align-items-center pt-5">
+    <h1 class="mb-5">Welcome</h1>
+    <% if !user_signed_in? %>
+        <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-lg btn-primary rounded-pill" %>
+    <% else %>
+    <%= form_with url: "/search", method: :get do |form| %>
+        <%= form.label :query, "Search for:" %>
+        <%= form.text_field :query %>
+        <%= form.submit "Search" %>
+    <% end %>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Email</th>
+                <th scope="col">Name</th>
+                <th scope="col">Address</th>
+                <th scope="col">Confirmed At</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @users.each do |user| %>
+                <tr>
+                    <th scope="row">1</th>
+                    <td><%= user.email %></td>
+                    <td><%= user.name %></td>
+                    <td><%= user.address %></td>
+                    <% if user.confirmed_at %>
+                        <td><%= user.confirmed_at %></td>
+                    <% else %>
+                        <td>
+                            <%= button_to "Resend confirmation", resend_confirmation_path(:user_id => user.id), class: '' %>
+                        </td>
+                    <% end %>
+                </tr>
+            <% end %>
+
+        </tbody>
+    </table>
+
+    <div>
+        <%= form_with model: @current_user, url: user_path(@current_user), method: :patch do |form| %>
+            <div class="mb-3">
+                <%= form.label :email, "Email:", class: "form-label" %>
+                <%= form.text_field :email, value: @current_user.email, class: "form-control" %>
+            </div>
+
+            <div class="mb-3">
+                <%= form.label :name, "Name:", class: "form-label" %>
+                <%= form.text_field :name, value: @current_user.name, class: "form-control" %>
+            </div>
+
+            <div class="mb-3">
+                <%= form.label :address, "Address:", class: "form-label" %>
+                <%= form.text_field :address, value: @current_user.address, class: "form-control" %>
+            </div>
+
+             <div class="mb-3">
+                <%= form.label :phone, "Phone:", class: "form-label" %>
+                <%= form.text_field :phone, value: @current_user.phone, class: "form-control" %>
+            </div>
+
+            <div class="mb-3">
+                <%= form.label :avatar, "Avatar:", class: "form-label" %>
+                <%= form.text_field :avatar, value: @current_user.avatar, class: "form-control" %>
+            </div>
+        
+
+            <%= form.submit "Search", class: "btn btn-primary" %>
+        <% end %>
+    </div>
+    <% end %>
+</div>
