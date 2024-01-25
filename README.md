@@ -4,6 +4,5 @@ cd rails_project
 bundle install
 rails db:create
 rails db:migrate
-
 rails s
 ```

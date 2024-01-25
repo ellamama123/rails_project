@@ -27,3 +27,13 @@ body{
     padding-top: 5rem;
 }
 
+.avatar {
+    width: 50%;
+    aspect-ratio: 3/2;
+}
+
+.avatar-profile {
+    width: 50px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+}

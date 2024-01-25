@@ -60,9 +60,13 @@ gem 'bullet', group: 'development'
 
 gem 'will_paginate', '3.3.0'
 
+gem "cancancan", "~> 2.0"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "pry"
+
 end
 
 group :development do
