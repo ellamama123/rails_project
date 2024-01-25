@@ -27,7 +27,7 @@ class HomeController < ApplicationController
         csv << ['Email', 'Name', 'Address', 'Confirmed At']
 
         @users.each do |user|
-          csv << [user.email, user.name, user.address, user.confirmed_at]
+          csv << [user.email, user.profile ?  user.profile.name : '', user.profile ? user.profile.address : '', user.confirmed_at]
         end
       end
     end

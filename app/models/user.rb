@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   attribute :confirmed_at, :datetime
 
-  has_one_attached :avatar
+  has_one :profile
 
   validates :email, presence: true, uniqueness: true
 
@@ -15,12 +15,11 @@ class User < ApplicationRecord
   end
 
   def self.ransackable_attributes(auth_object = nil)
-    %w[name email confirmed_at] # Add other searchable attributes as needed
+    %w[name email confirmed_at]
   end
 
-  def self.ransackable_associations(auth_object = nil)
-    # Optionally, you can define associations that are searchable
-    []
+  def self.ransackable_associations(_auth_object = nil)
+    %w[profile] # Include other associations as needed
   end
 
   def is_confirm

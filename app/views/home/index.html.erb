@@ -1,15 +1,22 @@
 <div class="d-flex flex-column justify-content-center pt-5">
     <h1 class="mb-5">Welcome</h1>
     <% if !user_signed_in? %>
-        <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-lg btn-primary rounded-pill" %>
+        <div class="row">
+            <div class="col-md-2">
+                <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-lg btn-primary rounded-pill" %>
+            </div>
+            <div class="col-md-2">
+                <%= link_to "Sign In", new_user_session_url, class: "btn btn-lg btn-primary rounded-pill" %>
+            </div>
+        </div>
     <% else %>
     <% if can? :manage, :all %>
         <div class="float-start">
             <%= search_form_for @q, url: root_path, method: :get do |f| %>
                 <div class="row">
                     <div class="col-md-3">
-                        <%= f.label :name_cont, "Name" %>
-                        <%= f.text_field :name_cont, class: "form-control", placeholder: "Enter name" %>
+                        <%= f.label :profile_name_cont, "Name" %>
+                        <%= f.text_field :profile_name_cont, class: "form-control", placeholder: "Enter name" %>
                     </div>
                     <div class="col-md-3">
                         <%= f.label :email_cont, "Email" %>
@@ -27,9 +34,6 @@
                         <% end %>
                     </div>
                 </div>
-
-
-
             <% end %>
         </div>
         <% if @users.any? %>
@@ -47,15 +51,15 @@
                     <% @users.each_with_index do |user, index| %>
                         <tr>
                             <th scope="row">
-                                <% if user.avatar.attached? %>
-                                    <%= image_tag user.avatar, class: "avatar-profile" %>
+                                <% if user.profile && user.profile.avatar.attached? %>
+                                    <%= image_tag user.profile.avatar, class: "avatar-profile" %>
                                 <% else %>
                                     <img src="/default-avatar.jpg" class="avatar-profile" />
                                 <% end %>
                             </th>
                             <td><%= user.email %></td>
-                            <td><%= user.name %></td>
-                            <td><%= user.address %></td>
+                            <td><%= user.profile ? user.profile.name : '' %></td>
+                            <td><%= user.profile ? user.profile.address : '' %></td>
                             <% if user.confirmed_at %>
                                 <td><%= user.confirmed_at %></td>
                             <% else %>
