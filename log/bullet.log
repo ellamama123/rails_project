@@ -1,0 +1,20 @@
+2024-01-26 10:04:15[WARN] user: nguyendinhchien
+GET /
+USE eager loading detected
+  User => [:profile]
+  Add to your query: .includes([:profile])
+Call stack
+  /Users/nguyendinhchien/Desktop/rails_7_devise_example/app/views/home/index.html.haml:42:in `block in _app_views_home_index_html_haml__1822883707996980286_29400'
+  /Users/nguyendinhchien/Desktop/rails_7_devise_example/app/views/home/index.html.haml:39:in `each_with_index'
+  /Users/nguyendinhchien/Desktop/rails_7_devise_example/app/views/home/index.html.haml:39:in `_app_views_home_index_html_haml__1822883707996980286_29400'
+
+2024-01-26 10:05:25[WARN] user: nguyendinhchien
+GET /
+USE eager loading detected
+  User => [:profile]
+  Add to your query: .includes([:profile])
+Call stack
+  /Users/nguyendinhchien/Desktop/rails_7_devise_example/app/views/home/index.html.haml:42:in `block in _app_views_home_index_html_haml__1822883707996980286_30060'
+  /Users/nguyendinhchien/Desktop/rails_7_devise_example/app/views/home/index.html.haml:39:in `each_with_index'
+  /Users/nguyendinhchien/Desktop/rails_7_devise_example/app/views/home/index.html.haml:39:in `_app_views_home_index_html_haml__1822883707996980286_30060'
+

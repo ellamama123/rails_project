@@ -1,0 +1,55 @@
+.d-flex.flex-column.justify-content-center.pt-5
+  %h1.mb-5 Welcome
+  - if !user_signed_in?
+    .row
+      .col-md-2
+        = link_to "Sign Up", new_user_registration_path, class: "btn btn-lg btn-primary rounded-pill"
+      .col-md-2
+        = link_to "Sign In", new_user_session_url, class: "btn btn-lg btn-primary rounded-pill"
+  - else
+    - if can? :manage, :all
+      .float-start
+        = search_form_for @q, url: root_path, method: :get do |f|
+          .row
+            .col-md-3
+              = f.label :profile_name_cont, "Name"
+              = f.text_field :profile_name_cont, class: "form-control", placeholder: "Enter name"
+            .col-md-3
+              = f.label :email_cont, "Email"
+              = f.text_field :email_cont, class: "form-control", placeholder: "Enter email"
+            .col-md-3
+              = f.label :confirmed_at_eq, "Active"
+              = f.select :confirmed_at_eq, options_for_select([['--------', ''], ['Actived', 'true'], ['Unactived', 'false']], @q.confirmed_at_eq), {}, class: "form-control"
+            .col-md-3.d-flex.align-items-end
+              = f.submit "Search", class: "btn btn-primary mr-3"
+              = button_tag "Clear", type: :reset, class: "btn btn-secondary ml-3"
+              = link_to root_path(params: request.query_parameters.merge(format: 'csv')), method: :get, class: 'btn btn-success' do
+                %i.fa.fa-download
+                Download CSV
+      - if @users.any?
+        %table.table.table-striped.table-hover.mt-3
+          %thead
+            %tr
+              %th{scope: "col"} Avatar
+              %th{scope: "col"} Email
+              %th{scope: "col"} Name
+              %th{scope: "col"} Address
+              %th{scope: "col"} Confirmed At
+          %tbody
+            - @users.each_with_index do |user, index|
+              %tr
+                %th{scope: "row"}
+                  - if user.profile && user.profile.avatar.attached?
+                    = image_tag user.profile.avatar, class: "avatar-profile"
+                  - else
+                    %img.avatar-profile{src: "/default-avatar.jpg"}/
+                %td= user.email
+                %td= user&.profile&.name
+                %td= user&.profile&.address
+                - if user.confirmed_at
+                  %td= user.confirmed_at
+                - else
+                  %td
+                    = button_to "Resend confirmation", resend_confirmation_path(:user_id => user.id), class: 'btn btn-primary'
+      - else
+        %h1.text-align-center.mt-5 No Data

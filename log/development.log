@@ -22043,3 +22043,513 @@ Migrating to AddColumnToProfiles (20240125062351)
   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/profile" for ::1 at 2024-01-26 10:03:08 +0700
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProfileController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/profile_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering profile/index.html.haml within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Profile"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/profile/index.html.haml:25
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/profile/index.html.haml:25
+  Rendered profile/index.html.haml within layouts/application (Duration: 36.6ms | Allocations: 50614)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 624)
+  Rendered layout layouts/application.html.erb (Duration: 109.7ms | Allocations: 103640)
+Completed 200 OK in 194ms (Views: 111.7ms | ActiveRecord: 2.1ms | Allocations: 140142)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--daf163e523faaab32d7d9990c5ad6157b4f542a1/Global-Company-Logo.jpg" for ::1 at 2024-01-26 10:03:09 +0700
+Processing by ActiveStorage::Blobs::RedirectController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--daf163e523faaab32d7d9990c5ad6157b4f542a1", "filename"=>"Global-Company-Logo"}
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+[36m  Disk Storage (12.4ms) [0m[34mGenerated URL for file at key: oxxaca3ohp0dsv928apqbhjcmsly (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhiM2g0WVdOaE0yOW9jREJrYzNZNU1qaGhjSEZpYUdwamJYTnNlUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpV1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWtkc2IySmhiQzFEYjIxd1lXNTVMVXh2WjI4dWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRIYkc5aVlXd3RRMjl0Y0dGdWVTMU1iMmR2TG1wd1p3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEMmx0WVdkbEwycHdaV2NHT3daVU9oRnpaWEoyYVdObFgyNWhiV1U2Q214dlkyRnMiLCJleHAiOiIyMDI0LTAxLTI2VDAzOjA4OjA5Ljg0MVoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--eaffc9ce217c1ee7348a0dfe690acd9722fa31ca/Global-Company-Logo.jpg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhiM2g0WVdOaE0yOW9jREJrYzNZNU1qaGhjSEZpYUdwamJYTnNlUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpV1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWtkc2IySmhiQzFEYjIxd1lXNTVMVXh2WjI4dWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRIYkc5aVlXd3RRMjl0Y0dGdWVTMU1iMmR2TG1wd1p3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEMmx0WVdkbEwycHdaV2NHT3daVU9oRnpaWEoyYVdObFgyNWhiV1U2Q214dlkyRnMiLCJleHAiOiIyMDI0LTAxLTI2VDAzOjA4OjA5Ljg0MVoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--eaffc9ce217c1ee7348a0dfe690acd9722fa31ca/Global-Company-Logo.jpg
+Completed 302 Found in 16ms (ActiveRecord: 0.1ms | Allocations: 6745)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhiM2g0WVdOaE0yOW9jREJrYzNZNU1qaGhjSEZpYUdwamJYTnNlUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpV1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWtkc2IySmhiQzFEYjIxd1lXNTVMVXh2WjI4dWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRIYkc5aVlXd3RRMjl0Y0dGdWVTMU1iMmR2TG1wd1p3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEMmx0WVdkbEwycHdaV2NHT3daVU9oRnpaWEoyYVdObFgyNWhiV1U2Q214dlkyRnMiLCJleHAiOiIyMDI0LTAxLTI2VDAzOjA4OjA5Ljg0MVoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--eaffc9ce217c1ee7348a0dfe690acd9722fa31ca/Global-Company-Logo.jpg" for ::1 at 2024-01-26 10:03:09 +0700
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Global-Company-Logo"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 331)
+
+
+Started GET "/" for ::1 at 2024-01-26 10:04:15 +0700
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 4], ["LIMIT", 1]]
+  ↳ app/models/ability.rb:7:in `initialize'
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.haml within layouts/application
+  [1m[36mUser Count (0.4ms)[0m  [1m[34mSELECT COUNT(DISTINCT "users"."id") FROM "users"[0m
+  ↳ app/views/home/index.html.haml:29
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT DISTINCT "users".* FROM "users" LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/views/home/index.html.haml:39:in `each_with_index'
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 4], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.haml:42
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Profile"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.haml:42
+  [1m[36mActiveStorage::Blob Load (0.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.haml:43
+  [1m[36mProfile Load (0.0ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 5], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.haml:42
+  [1m[36mProfile Load (0.0ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.haml:42
+  [1m[36mProfile Load (0.0ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.haml:42
+  [1m[36mProfile Load (0.0ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.haml:42
+  [1m[36mProfile Load (0.0ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 9], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.haml:42
+  [1m[36mProfile Load (0.0ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 10], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.haml:42
+  [1m[36mProfile Load (0.0ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 11], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.haml:42
+  [1m[36mProfile Load (0.0ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 12], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.haml:42
+  [1m[36mProfile Load (0.0ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 13], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.haml:42
+  Rendered home/index.html.haml within layouts/application (Duration: 28.6ms | Allocations: 43950)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 584)
+  Rendered layout layouts/application.html.erb (Duration: 35.8ms | Allocations: 50557)
+Completed 200 OK in 47ms (Views: 36.5ms | ActiveRecord: 1.1ms | Allocations: 55556)
+
+
+user: nguyendinhchien
+GET /
+USE eager loading detected
+  User => [:profile]
+  Add to your query: .includes([:profile])
+Call stack
+  /Users/nguyendinhchien/Desktop/rails_7_devise_example/app/views/home/index.html.haml:42:in `block in _app_views_home_index_html_haml__1822883707996980286_29400'
+  /Users/nguyendinhchien/Desktop/rails_7_devise_example/app/views/home/index.html.haml:39:in `each_with_index'
+  /Users/nguyendinhchien/Desktop/rails_7_devise_example/app/views/home/index.html.haml:39:in `_app_views_home_index_html_haml__1822883707996980286_29400'
+
+
+  
+Bullet::Notification::UnoptimizedQueryError (user: nguyendinhchien
+GET /
+USE eager loading detected
+  User => [:profile]
+  Add to your query: .includes([:profile])
+Call stack
+  /Users/nguyendinhchien/Desktop/rails_7_devise_example/app/views/home/index.html.haml:42:in `block in _app_views_home_index_html_haml__1822883707996980286_29400'
+  /Users/nguyendinhchien/Desktop/rails_7_devise_example/app/views/home/index.html.haml:39:in `each_with_index'
+  /Users/nguyendinhchien/Desktop/rails_7_devise_example/app/views/home/index.html.haml:39:in `_app_views_home_index_html_haml__1822883707996980286_29400'
+
+):
+  
+uniform_notifier (1.16.0) lib/uniform_notifier/raise.rb:19:in `_out_of_channel_notify'
+uniform_notifier (1.16.0) lib/uniform_notifier/base.rb:25:in `out_of_channel_notify'
+bullet (7.1.6) lib/bullet/notification/base.rb:50:in `notify_out_of_channel'
+bullet (7.1.6) lib/bullet.rb:206:in `block in perform_out_of_channel_notifications'
+bullet (7.1.6) lib/bullet.rb:268:in `block (2 levels) in for_each_active_notifier_with_notification'
+/Users/nguyendinhchien/.rubies/ruby-3.0.6/lib/ruby/3.0.0/set.rb:344:in `each_key'
+/Users/nguyendinhchien/.rubies/ruby-3.0.6/lib/ruby/3.0.0/set.rb:344:in `each'
+bullet (7.1.6) lib/bullet.rb:266:in `block in for_each_active_notifier_with_notification'
+bullet (7.1.6) lib/bullet.rb:265:in `each'
+bullet (7.1.6) lib/bullet.rb:265:in `for_each_active_notifier_with_notification'
+bullet (7.1.6) lib/bullet.rb:204:in `perform_out_of_channel_notifications'
+bullet (7.1.6) lib/bullet/rack.rb:40:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.3.1) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3.1) lib/rack/etag.rb:27:in `call'
+rack (2.2.3.1) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3.1) lib/rack/head.rb:12:in `call'
+actionpack (7.0.3) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.3) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.3.1) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3.1) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/cookies.rb:697:in `call'
+activerecord (7.0.3) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.3) lib/active_support/tagged_logging.rb:114:in `block in tagged'
+activesupport (7.0.3) lib/active_support/tagged_logging.rb:38:in `tagged'
+activesupport (7.0.3) lib/active_support/tagged_logging.rb:114:in `tagged'
+railties (7.0.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3.1) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3.1) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/server_timing.rb:20:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.3.1) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.4) lib/puma/configuration.rb:252:in `call'
+puma (5.6.4) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.4) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.4) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.4) lib/puma/server.rb:441:in `process_client'
+puma (5.6.4) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/" for ::1 at 2024-01-26 10:05:25 +0700
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 4], ["LIMIT", 1]]
+  ↳ app/models/ability.rb:7:in `initialize'
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.haml within layouts/application
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "users"."id") FROM "users"[0m
+  ↳ app/views/home/index.html.haml:29
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT DISTINCT "users".* FROM "users" LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/views/home/index.html.haml:39:in `each_with_index'
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 4], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.haml:42
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Profile"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.haml:42
+  [1m[36mActiveStorage::Blob Load (0.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.haml:43
+  [1m[36mProfile Load (0.0ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 5], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.haml:42
+  [1m[36mProfile Load (0.0ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.haml:42
+  [1m[36mProfile Load (0.0ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.haml:42
+  [1m[36mProfile Load (0.0ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.haml:42
+  [1m[36mProfile Load (0.0ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 9], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.haml:42
+  [1m[36mProfile Load (0.0ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 10], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.haml:42
+  [1m[36mProfile Load (0.0ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 11], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.haml:42
+  [1m[36mProfile Load (0.0ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 12], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.haml:42
+  [1m[36mProfile Load (0.0ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 13], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.haml:42
+  Rendered home/index.html.haml within layouts/application (Duration: 36.6ms | Allocations: 42901)
+  Rendered layouts/_header.html.haml (Duration: 4.8ms | Allocations: 9853)
+  Rendered layout layouts/application.html.erb (Duration: 48.8ms | Allocations: 58733)
+Completed 200 OK in 74ms (Views: 50.6ms | ActiveRecord: 1.2ms | Allocations: 63023)
+
+
+user: nguyendinhchien
+GET /
+USE eager loading detected
+  User => [:profile]
+  Add to your query: .includes([:profile])
+Call stack
+  /Users/nguyendinhchien/Desktop/rails_7_devise_example/app/views/home/index.html.haml:42:in `block in _app_views_home_index_html_haml__1822883707996980286_30060'
+  /Users/nguyendinhchien/Desktop/rails_7_devise_example/app/views/home/index.html.haml:39:in `each_with_index'
+  /Users/nguyendinhchien/Desktop/rails_7_devise_example/app/views/home/index.html.haml:39:in `_app_views_home_index_html_haml__1822883707996980286_30060'
+
+
+  
+Bullet::Notification::UnoptimizedQueryError (user: nguyendinhchien
+GET /
+USE eager loading detected
+  User => [:profile]
+  Add to your query: .includes([:profile])
+Call stack
+  /Users/nguyendinhchien/Desktop/rails_7_devise_example/app/views/home/index.html.haml:42:in `block in _app_views_home_index_html_haml__1822883707996980286_30060'
+  /Users/nguyendinhchien/Desktop/rails_7_devise_example/app/views/home/index.html.haml:39:in `each_with_index'
+  /Users/nguyendinhchien/Desktop/rails_7_devise_example/app/views/home/index.html.haml:39:in `_app_views_home_index_html_haml__1822883707996980286_30060'
+
+):
+  
+uniform_notifier (1.16.0) lib/uniform_notifier/raise.rb:19:in `_out_of_channel_notify'
+uniform_notifier (1.16.0) lib/uniform_notifier/base.rb:25:in `out_of_channel_notify'
+bullet (7.1.6) lib/bullet/notification/base.rb:50:in `notify_out_of_channel'
+bullet (7.1.6) lib/bullet.rb:206:in `block in perform_out_of_channel_notifications'
+bullet (7.1.6) lib/bullet.rb:268:in `block (2 levels) in for_each_active_notifier_with_notification'
+/Users/nguyendinhchien/.rubies/ruby-3.0.6/lib/ruby/3.0.0/set.rb:344:in `each_key'
+/Users/nguyendinhchien/.rubies/ruby-3.0.6/lib/ruby/3.0.0/set.rb:344:in `each'
+bullet (7.1.6) lib/bullet.rb:266:in `block in for_each_active_notifier_with_notification'
+bullet (7.1.6) lib/bullet.rb:265:in `each'
+bullet (7.1.6) lib/bullet.rb:265:in `for_each_active_notifier_with_notification'
+bullet (7.1.6) lib/bullet.rb:204:in `perform_out_of_channel_notifications'
+bullet (7.1.6) lib/bullet/rack.rb:40:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.3.1) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3.1) lib/rack/etag.rb:27:in `call'
+rack (2.2.3.1) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3.1) lib/rack/head.rb:12:in `call'
+actionpack (7.0.3) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.3) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.3.1) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3.1) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/cookies.rb:697:in `call'
+activerecord (7.0.3) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.3) lib/active_support/tagged_logging.rb:114:in `block in tagged'
+activesupport (7.0.3) lib/active_support/tagged_logging.rb:38:in `tagged'
+activesupport (7.0.3) lib/active_support/tagged_logging.rb:114:in `tagged'
+railties (7.0.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3.1) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3.1) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/server_timing.rb:20:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.3.1) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.4) lib/puma/configuration.rb:252:in `call'
+puma (5.6.4) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.4) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.4) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.4) lib/puma/server.rb:441:in `process_client'
+puma (5.6.4) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/" for ::1 at 2024-01-26 10:07:25 +0700
+Processing by HomeController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 4], ["LIMIT", 1]]
+  ↳ app/models/ability.rb:7:in `initialize'
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.haml within layouts/application
+  [1m[36mUser Count (0.2ms)[0m  [1m[34mSELECT COUNT(DISTINCT "users"."id") FROM "users"[0m
+  ↳ app/views/home/index.html.haml:29
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT DISTINCT "users".* FROM "users" LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/views/home/index.html.haml:39:in `each_with_index'
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" IN (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 4], ["user_id", 5], ["user_id", 6], ["user_id", 7], ["user_id", 8], ["user_id", 9], ["user_id", 10], ["user_id", 11], ["user_id", 12], ["user_id", 13]]
+  ↳ app/views/home/index.html.haml:39:in `each_with_index'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Profile"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.haml:42
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.haml:43
+  Rendered home/index.html.haml within layouts/application (Duration: 27.3ms | Allocations: 38366)
+  Rendered layouts/_header.html.haml (Duration: 0.8ms | Allocations: 337)
+  Rendered layout layouts/application.html.erb (Duration: 44.4ms | Allocations: 55792)
+Completed 200 OK in 63ms (Views: 44.2ms | ActiveRecord: 2.7ms | Allocations: 73197)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhiM2g0WVdOaE0yOW9jREJrYzNZNU1qaGhjSEZpYUdwamJYTnNlUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpV1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWtkc2IySmhiQzFEYjIxd1lXNTVMVXh2WjI4dWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRIYkc5aVlXd3RRMjl0Y0dGdWVTMU1iMmR2TG1wd1p3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEMmx0WVdkbEwycHdaV2NHT3daVU9oRnpaWEoyYVdObFgyNWhiV1U2Q214dlkyRnMiLCJleHAiOiIyMDI0LTAxLTI2VDAzOjA4OjA5Ljg0MVoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--eaffc9ce217c1ee7348a0dfe690acd9722fa31ca/Global-Company-Logo.jpg" for ::1 at 2024-01-26 10:07:26 +0700
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Global-Company-Logo"}
+Completed 304 Not Modified in 2ms (ActiveRecord: 0.0ms | Allocations: 491)
+
+
+Started GET "/" for ::1 at 2024-01-26 10:26:20 +0700
+Processing by HomeController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 4], ["LIMIT", 1]]
+  ↳ app/models/ability.rb:7:in `initialize'
+  Rendering layout layouts/application.html.haml
+  Rendering home/index.html.haml within layouts/application
+  [1m[36mUser Count (0.4ms)[0m  [1m[34mSELECT COUNT(DISTINCT "users"."id") FROM "users"[0m
+  ↳ app/views/home/index.html.haml:29
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT DISTINCT "users".* FROM "users" LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/views/home/index.html.haml:39:in `each_with_index'
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" IN (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 4], ["user_id", 5], ["user_id", 6], ["user_id", 7], ["user_id", 8], ["user_id", 9], ["user_id", 10], ["user_id", 11], ["user_id", 12], ["user_id", 13]]
+  ↳ app/views/home/index.html.haml:39:in `each_with_index'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Profile"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.haml:42
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.haml:43
+  Rendered home/index.html.haml within layouts/application (Duration: 62.5ms | Allocations: 39973)
+  Rendered layouts/_header.html.haml (Duration: 6.0ms | Allocations: 9827)
+  Rendered layout layouts/application.html.haml (Duration: 82.4ms | Allocations: 61923)
+Completed 200 OK in 119ms (Views: 85.5ms | ActiveRecord: 4.3ms | Allocations: 67331)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--daf163e523faaab32d7d9990c5ad6157b4f542a1/Global-Company-Logo.jpg" for ::1 at 2024-01-26 10:26:21 +0700
+Processing by ActiveStorage::Blobs::RedirectController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--daf163e523faaab32d7d9990c5ad6157b4f542a1", "filename"=>"Global-Company-Logo"}
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+[36m  Disk Storage (3.3ms) [0m[34mGenerated URL for file at key: oxxaca3ohp0dsv928apqbhjcmsly (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhiM2g0WVdOaE0yOW9jREJrYzNZNU1qaGhjSEZpYUdwamJYTnNlUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpV1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWtkc2IySmhiQzFEYjIxd1lXNTVMVXh2WjI4dWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRIYkc5aVlXd3RRMjl0Y0dGdWVTMU1iMmR2TG1wd1p3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEMmx0WVdkbEwycHdaV2NHT3daVU9oRnpaWEoyYVdObFgyNWhiV1U2Q214dlkyRnMiLCJleHAiOiIyMDI0LTAxLTI2VDAzOjMxOjIxLjE3NloiLCJwdXIiOiJibG9iX2tleSJ9fQ==--9342320f8dde466aa3d77f719830fdc408ca6429/Global-Company-Logo.jpg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhiM2g0WVdOaE0yOW9jREJrYzNZNU1qaGhjSEZpYUdwamJYTnNlUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpV1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWtkc2IySmhiQzFEYjIxd1lXNTVMVXh2WjI4dWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRIYkc5aVlXd3RRMjl0Y0dGdWVTMU1iMmR2TG1wd1p3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEMmx0WVdkbEwycHdaV2NHT3daVU9oRnpaWEoyYVdObFgyNWhiV1U2Q214dlkyRnMiLCJleHAiOiIyMDI0LTAxLTI2VDAzOjMxOjIxLjE3NloiLCJwdXIiOiJibG9iX2tleSJ9fQ==--9342320f8dde466aa3d77f719830fdc408ca6429/Global-Company-Logo.jpg
+Completed 302 Found in 12ms (ActiveRecord: 0.2ms | Allocations: 2390)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhiM2g0WVdOaE0yOW9jREJrYzNZNU1qaGhjSEZpYUdwamJYTnNlUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpV1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWtkc2IySmhiQzFEYjIxd1lXNTVMVXh2WjI4dWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRIYkc5aVlXd3RRMjl0Y0dGdWVTMU1iMmR2TG1wd1p3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEMmx0WVdkbEwycHdaV2NHT3daVU9oRnpaWEoyYVdObFgyNWhiV1U2Q214dlkyRnMiLCJleHAiOiIyMDI0LTAxLTI2VDAzOjMxOjIxLjE3NloiLCJwdXIiOiJibG9iX2tleSJ9fQ==--9342320f8dde466aa3d77f719830fdc408ca6429/Global-Company-Logo.jpg" for ::1 at 2024-01-26 10:26:21 +0700
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Global-Company-Logo"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 203)
+
+
+Started GET "/profile" for ::1 at 2024-01-26 10:53:18 +0700
+Processing by ProfileController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/profile_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.haml
+  Rendering profile/index.html.haml within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Profile"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/profile/index.html.haml:25
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/profile/index.html.haml:25
+  Rendered profile/index.html.haml within layouts/application (Duration: 50.6ms | Allocations: 15902)
+  Rendered layouts/_header.html.haml (Duration: 0.2ms | Allocations: 343)
+  Rendered layout layouts/application.html.haml (Duration: 59.9ms | Allocations: 21915)
+Completed 200 OK in 86ms (Views: 61.0ms | ActiveRecord: 3.0ms | Allocations: 29635)
+
+
+Started GET "/" for ::1 at 2024-01-26 10:53:19 +0700
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 4], ["LIMIT", 1]]
+  ↳ app/models/ability.rb:7:in `initialize'
+  Rendering layout layouts/application.html.haml
+  Rendering home/index.html.haml within layouts/application
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "users"."id") FROM "users"[0m
+  ↳ app/views/home/index.html.haml:29
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT DISTINCT "users".* FROM "users" LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/views/home/index.html.haml:39:in `each_with_index'
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" IN (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 4], ["user_id", 5], ["user_id", 6], ["user_id", 7], ["user_id", 8], ["user_id", 9], ["user_id", 10], ["user_id", 11], ["user_id", 12], ["user_id", 13]]
+  ↳ app/views/home/index.html.haml:39:in `each_with_index'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Profile"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.haml:42
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.haml:43
+  Rendered home/index.html.haml within layouts/application (Duration: 20.0ms | Allocations: 19496)
+  Rendered layouts/_header.html.haml (Duration: 0.2ms | Allocations: 328)
+  Rendered layout layouts/application.html.haml (Duration: 25.3ms | Allocations: 25342)
+Completed 200 OK in 32ms (Views: 25.2ms | ActiveRecord: 0.8ms | Allocations: 28610)
+
+
+Started GET "/" for ::1 at 2024-01-26 11:09:04 +0700
+  
+NoMethodError (undefined method `before_filter' for ApplicationController:Class
+Did you mean?  before_action):
+  
+app/controllers/application_controller.rb:2:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/home_controller.rb:1:in `<main>'
+Started GET "/" for ::1 at 2024-01-26 11:09:17 +0700
+Processing by HomeController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 4], ["LIMIT", 1]]
+  ↳ app/models/ability.rb:7:in `initialize'
+  Rendering layout layouts/application.html.haml
+  Rendering home/index.html.haml within layouts/application
+  [1m[36mUser Count (0.3ms)[0m  [1m[34mSELECT COUNT(DISTINCT "users"."id") FROM "users"[0m
+  ↳ app/views/home/index.html.haml:29
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT DISTINCT "users".* FROM "users" LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/views/home/index.html.haml:39:in `each_with_index'
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" IN (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 4], ["user_id", 5], ["user_id", 6], ["user_id", 7], ["user_id", 8], ["user_id", 9], ["user_id", 10], ["user_id", 11], ["user_id", 12], ["user_id", 13]]
+  ↳ app/views/home/index.html.haml:39:in `each_with_index'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Profile"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.haml:42
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.haml:43
+  Rendered home/index.html.haml within layouts/application (Duration: 45.7ms | Allocations: 56897)
+  Rendered layouts/_header.html.haml (Duration: 4.7ms | Allocations: 9723)
+  Rendered layout layouts/application.html.haml (Duration: 71.9ms | Allocations: 90299)
+Completed 200 OK in 101ms (Views: 72.3ms | ActiveRecord: 3.3ms | Allocations: 109896)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--daf163e523faaab32d7d9990c5ad6157b4f542a1/Global-Company-Logo.jpg" for ::1 at 2024-01-26 11:09:18 +0700
+Processing by ActiveStorage::Blobs::RedirectController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--daf163e523faaab32d7d9990c5ad6157b4f542a1", "filename"=>"Global-Company-Logo"}
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+[36m  Disk Storage (1.7ms) [0m[34mGenerated URL for file at key: oxxaca3ohp0dsv928apqbhjcmsly (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhiM2g0WVdOaE0yOW9jREJrYzNZNU1qaGhjSEZpYUdwamJYTnNlUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpV1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWtkc2IySmhiQzFEYjIxd1lXNTVMVXh2WjI4dWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRIYkc5aVlXd3RRMjl0Y0dGdWVTMU1iMmR2TG1wd1p3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEMmx0WVdkbEwycHdaV2NHT3daVU9oRnpaWEoyYVdObFgyNWhiV1U2Q214dlkyRnMiLCJleHAiOiIyMDI0LTAxLTI2VDA0OjE0OjE4Ljg1OFoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--e7ec53600ba9348c1ea12268cc9b01fc776abe71/Global-Company-Logo.jpg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhiM2g0WVdOaE0yOW9jREJrYzNZNU1qaGhjSEZpYUdwamJYTnNlUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpV1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWtkc2IySmhiQzFEYjIxd1lXNTVMVXh2WjI4dWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRIYkc5aVlXd3RRMjl0Y0dGdWVTMU1iMmR2TG1wd1p3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEMmx0WVdkbEwycHdaV2NHT3daVU9oRnpaWEoyYVdObFgyNWhiV1U2Q214dlkyRnMiLCJleHAiOiIyMDI0LTAxLTI2VDA0OjE0OjE4Ljg1OFoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--e7ec53600ba9348c1ea12268cc9b01fc776abe71/Global-Company-Logo.jpg
+Completed 302 Found in 10ms (ActiveRecord: 0.3ms | Allocations: 2581)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhiM2g0WVdOaE0yOW9jREJrYzNZNU1qaGhjSEZpYUdwamJYTnNlUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpV1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWtkc2IySmhiQzFEYjIxd1lXNTVMVXh2WjI4dWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRIYkc5aVlXd3RRMjl0Y0dGdWVTMU1iMmR2TG1wd1p3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEMmx0WVdkbEwycHdaV2NHT3daVU9oRnpaWEoyYVdObFgyNWhiV1U2Q214dlkyRnMiLCJleHAiOiIyMDI0LTAxLTI2VDA0OjE0OjE4Ljg1OFoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--e7ec53600ba9348c1ea12268cc9b01fc776abe71/Global-Company-Logo.jpg" for ::1 at 2024-01-26 11:09:18 +0700
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Global-Company-Logo"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 312)
+
+
+Started GET "/" for ::1 at 2024-01-26 11:10:14 +0700
+Processing by HomeController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 4], ["LIMIT", 1]]
+  ↳ app/models/ability.rb:7:in `initialize'
+  Rendering layout layouts/application.html.haml
+  Rendering home/index.html.haml within layouts/application
+  [1m[36mUser Count (0.3ms)[0m  [1m[34mSELECT COUNT(DISTINCT "users"."id") FROM "users"[0m
+  ↳ app/views/home/index.html.haml:29
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT DISTINCT "users".* FROM "users" LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/views/home/index.html.haml:39:in `each_with_index'
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" IN (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 4], ["user_id", 5], ["user_id", 6], ["user_id", 7], ["user_id", 8], ["user_id", 9], ["user_id", 10], ["user_id", 11], ["user_id", 12], ["user_id", 13]]
+  ↳ app/views/home/index.html.haml:39:in `each_with_index'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Profile"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.haml:42
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.haml:43
+  Rendered home/index.html.haml within layouts/application (Duration: 47.4ms | Allocations: 57318)
+  Rendered layouts/_header.html.haml (Duration: 4.8ms | Allocations: 9728)
+  Rendered layout layouts/application.html.haml (Duration: 72.0ms | Allocations: 90767)
+Completed 200 OK in 107ms (Views: 72.1ms | ActiveRecord: 3.8ms | Allocations: 111407)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhiM2g0WVdOaE0yOW9jREJrYzNZNU1qaGhjSEZpYUdwamJYTnNlUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpV1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWtkc2IySmhiQzFEYjIxd1lXNTVMVXh2WjI4dWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRIYkc5aVlXd3RRMjl0Y0dGdWVTMU1iMmR2TG1wd1p3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEMmx0WVdkbEwycHdaV2NHT3daVU9oRnpaWEoyYVdObFgyNWhiV1U2Q214dlkyRnMiLCJleHAiOiIyMDI0LTAxLTI2VDA0OjE0OjE4Ljg1OFoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--e7ec53600ba9348c1ea12268cc9b01fc776abe71/Global-Company-Logo.jpg" for ::1 at 2024-01-26 11:10:15 +0700
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Global-Company-Logo"}
+Completed 304 Not Modified in 2ms (ActiveRecord: 0.0ms | Allocations: 492)
+
+
+Started GET "/" for ::1 at 2024-01-26 11:29:15 +0700
+Processing by HomeController#index as HTML
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 4], ["LIMIT", 1]]
+  ↳ app/models/ability.rb:7:in `initialize'
+  Rendering layout layouts/application.html.haml
+  Rendering home/index.html.haml within layouts/application
+  [1m[36mUser Count (0.3ms)[0m  [1m[34mSELECT COUNT(DISTINCT "users"."id") FROM "users"[0m
+  ↳ app/views/home/index.html.haml:29
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT DISTINCT "users".* FROM "users" LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/views/home/index.html.haml:39:in `each_with_index'
+  [1m[36mProfile Load (1.4ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" IN (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 4], ["user_id", 5], ["user_id", 6], ["user_id", 7], ["user_id", 8], ["user_id", 9], ["user_id", 10], ["user_id", 11], ["user_id", 12], ["user_id", 13]]
+  ↳ app/views/home/index.html.haml:39:in `each_with_index'
+  [1m[36mActiveStorage::Attachment Load (1.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Profile"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.haml:42
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.haml:43
+  Rendered home/index.html.haml within layouts/application (Duration: 61.4ms | Allocations: 19234)
+  Rendered layouts/_header.html.haml (Duration: 0.3ms | Allocations: 333)
+  Rendered layout layouts/application.html.haml (Duration: 70.9ms | Allocations: 25211)
+Completed 200 OK in 99ms (Views: 68.5ms | ActiveRecord: 6.6ms | Allocations: 29729)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--daf163e523faaab32d7d9990c5ad6157b4f542a1/Global-Company-Logo.jpg" for ::1 at 2024-01-26 11:29:16 +0700
+Processing by ActiveStorage::Blobs::RedirectController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--daf163e523faaab32d7d9990c5ad6157b4f542a1", "filename"=>"Global-Company-Logo"}
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+[36m  Disk Storage (2.5ms) [0m[34mGenerated URL for file at key: oxxaca3ohp0dsv928apqbhjcmsly (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhiM2g0WVdOaE0yOW9jREJrYzNZNU1qaGhjSEZpYUdwamJYTnNlUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpV1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWtkc2IySmhiQzFEYjIxd1lXNTVMVXh2WjI4dWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRIYkc5aVlXd3RRMjl0Y0dGdWVTMU1iMmR2TG1wd1p3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEMmx0WVdkbEwycHdaV2NHT3daVU9oRnpaWEoyYVdObFgyNWhiV1U2Q214dlkyRnMiLCJleHAiOiIyMDI0LTAxLTI2VDA0OjM0OjE2Ljg5MFoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--a59d612e8fe5325ef351c3bc8a6d808f66b3be30/Global-Company-Logo.jpg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhiM2g0WVdOaE0yOW9jREJrYzNZNU1qaGhjSEZpYUdwamJYTnNlUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpV1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWtkc2IySmhiQzFEYjIxd1lXNTVMVXh2WjI4dWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRIYkc5aVlXd3RRMjl0Y0dGdWVTMU1iMmR2TG1wd1p3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEMmx0WVdkbEwycHdaV2NHT3daVU9oRnpaWEoyYVdObFgyNWhiV1U2Q214dlkyRnMiLCJleHAiOiIyMDI0LTAxLTI2VDA0OjM0OjE2Ljg5MFoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--a59d612e8fe5325ef351c3bc8a6d808f66b3be30/Global-Company-Logo.jpg
+Completed 302 Found in 12ms (ActiveRecord: 0.1ms | Allocations: 2369)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhiM2g0WVdOaE0yOW9jREJrYzNZNU1qaGhjSEZpYUdwamJYTnNlUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpV1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWtkc2IySmhiQzFEYjIxd1lXNTVMVXh2WjI4dWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRIYkc5aVlXd3RRMjl0Y0dGdWVTMU1iMmR2TG1wd1p3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEMmx0WVdkbEwycHdaV2NHT3daVU9oRnpaWEoyYVdObFgyNWhiV1U2Q214dlkyRnMiLCJleHAiOiIyMDI0LTAxLTI2VDA0OjM0OjE2Ljg5MFoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--a59d612e8fe5325ef351c3bc8a6d808f66b3be30/Global-Company-Logo.jpg" for ::1 at 2024-01-26 11:29:16 +0700
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Global-Company-Logo"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 203)
+
+
