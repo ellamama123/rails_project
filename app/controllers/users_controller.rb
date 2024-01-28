@@ -5,9 +5,9 @@ class UsersController < ApplicationController
       @current_user = current_user 
     end
 
-    def resend_confirmation
-        user = User.find_by(id: params[:user_id])
-        user.send_confirmation_instructions 
+    def resend_confirmation 
+      user = User.find_by(id: params[:user_id])
+      ConfirmationMailerWorker.perform_in(1.minutes, user.id)    
     end
 
     def update
