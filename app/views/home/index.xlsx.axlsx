@@ -1,0 +1,6 @@
+Axlsx::Package.new do |p|
+  p.workbook.add_worksheet(name: 'Sheet 1') do |sheet|
+    # Add your data to the sheet
+    sheet.add_row ['Header 1', 'Header 2']
+  end
+end

@@ -1,6 +1,5 @@
 .d-flex.flex-column.justify-content-center.pt-5
   %h1.mb-5 Welcome
-  %p{"data-controller" => "hello"} This text will change!
   - if !user_signed_in?
     .row
       .col-md-2
@@ -27,6 +26,13 @@
               = link_to root_path(params: request.query_parameters.merge(format: 'csv')), method: :get, class: 'btn btn-success' do
                 %i.fa.fa-download
                 Download CSV
+
+              = link_to root_path(params: request.query_parameters.merge(format: 'xlsx')), method: :get, class: 'btn btn-success' do
+                %i.fa.fa-download
+                Download XLSX
+              = link_to root_path(params: request.query_parameters.merge(format: 'pdf')), method: :get, class: 'btn btn-success' do
+                Print 
+
       - if @users.any?
         %table.table.table-striped.table-hover.mt-3
           %thead

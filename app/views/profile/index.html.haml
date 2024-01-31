@@ -22,10 +22,9 @@
         = form.label :gender, "Gender:", class: "form-label"
         = form.select :gender, Profile.genders.keys, {} , {class: "form-select"}
 
-      .mb-3
-        = form.label :avatar, "Avatar:", class: "form-label"
-        = form.file_field :avatar, class: "form-control", accept: 'image/jpeg,image/png', data: { controller: 'profile' }
-        %img.image-preview{ style: "max-width: 100%; max-height: 200px;", src: "", alt: "Image Preview" }
+      #Img.mb-3{"data-controller" => "profile"}
+        = form.label :avatar, class: "form-label"
+        = form.file_field :avatar, class: "form-control", accept: "image/png, image/jpeg, image/jpg", "data-profile-target": "input", "data-action": "profile#preview"
 
       .mb-3
         = image_tag @user_info.avatar, class: "avatar" if @user_info.avatar.attached?
